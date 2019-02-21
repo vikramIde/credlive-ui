@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - node
+script:
+  - node build/build.js
+cache:
+  directories:
+    - node_modules
+deploy:
+  provider: s3
+  access_key_id: "AKIAJKMRW3I6MM3NBDTA"
+  secret_access_key: "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"
+  bucket: "app.adhat.io"
+  acl: public_read
+  skip_cleanup: true
+  local_dir: dist
+branches:
+  only:
+    - master
+addons:
+    apt:
+      update: true
