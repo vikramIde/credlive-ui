@@ -1,0 +1,3040 @@
+{
+  "contractName": "MediaStore",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "mediaHash",
+          "type": "string"
+        },
+        {
+          "name": "tagString",
+          "type": "string"
+        }
+      ],
+      "name": "addMedia",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "mediaHash",
+          "type": "string"
+        }
+      ],
+      "name": "getMediaDetByHash",
+      "outputs": [
+        {
+          "name": "creatorAddress",
+          "type": "address"
+        },
+        {
+          "name": "allTags",
+          "type": "string"
+        },
+        {
+          "name": "claps",
+          "type": "uint32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610982806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633240fc8f146100515780639c0a72ad14610100575b600080fd5b34801561005d57600080fd5b506100fe600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610228565b005b34801561010c57600080fd5b50610167600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061057b565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001806020018363ffffffff1663ffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156101eb5780820151818401526020810190506101d0565b50505050905090810190601f1680156102185780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b60608083915082905060008251118015610243575060008151115b151561024e57600080fd5b6004846040518082805190602001908083835b6020831015156102865780518252602082019150602081019050602083039250610261565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160049054906101000a900460ff161515156102d657600080fd5b60a0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff168152602001848152602001858152602001600063ffffffff168152602001600115158152506000808201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101908051906020019061038292919061082a565b50604082015181600201908051906020019061039f92919061082a565b5060608201518160030160006101000a81548163ffffffff021916908363ffffffff16021790555060808201518160030160046101000a81548160ff02191690831515021790555090505060006004856040518082805190602001908083835b60208310151561042457805182526020820191506020810190506020830392506103ff565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182018160010190805460018160011615610100020316600290046104e59291906108aa565b506002820181600201908054600181600116156101000203166002900461050d9291906108aa565b506003820160009054906101000a900463ffffffff168160030160006101000a81548163ffffffff021916908363ffffffff1602179055506003820160049054906101000a900460ff168160030160046101000a81548160ff02191690831515021790555090505050505050565b6000606060006004846040518082805190602001908083835b6020831015156105b95780518252602082019150602081019050602083039250610594565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160049054906101000a900460ff16151561060857600080fd5b6004846040518082805190602001908083835b602083101515610640578051825260208201915060208101905060208303925061061b565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1692506004846040518082805190602001908083835b6020831015156106d157805182526020820191506020810190506020830392506106ac565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561079b5780601f106107705761010080835404028352916020019161079b565b820191906000526020600020905b81548152906001019060200180831161077e57829003601f168201915b505050505091506004846040518082805190602001908083835b6020831015156107da57805182526020820191506020810190506020830392506107b5565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160009054906101000a900463ffffffff1690509193909250565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061086b57805160ff1916838001178555610899565b82800160010185558215610899579182015b8281111561089857825182559160200191906001019061087d565b5b5090506108a69190610931565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106108e35780548555610920565b8280016001018555821561092057600052602060002091601f016020900482015b8281111561091f578254825591600101919060010190610904565b5b50905061092d9190610931565b5090565b61095391905b8082111561094f576000816000905550600101610937565b5090565b905600a165627a7a72305820e348aec85a9c6a7e52526c2a5e1c5f2aae28af8c76cefce668d5cf03891c9e450029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633240fc8f146100515780639c0a72ad14610100575b600080fd5b34801561005d57600080fd5b506100fe600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610228565b005b34801561010c57600080fd5b50610167600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061057b565b604051808473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001806020018363ffffffff1663ffffffff168152602001828103825284818151815260200191508051906020019080838360005b838110156101eb5780820151818401526020810190506101d0565b50505050905090810190601f1680156102185780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b60608083915082905060008251118015610243575060008151115b151561024e57600080fd5b6004846040518082805190602001908083835b6020831015156102865780518252602082019150602081019050602083039250610261565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160049054906101000a900460ff161515156102d657600080fd5b60a0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff168152602001848152602001858152602001600063ffffffff168152602001600115158152506000808201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101908051906020019061038292919061082a565b50604082015181600201908051906020019061039f92919061082a565b5060608201518160030160006101000a81548163ffffffff021916908363ffffffff16021790555060808201518160030160046101000a81548160ff02191690831515021790555090505060006004856040518082805190602001908083835b60208310151561042457805182526020820191506020810190506020830392506103ff565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182018160010190805460018160011615610100020316600290046104e59291906108aa565b506002820181600201908054600181600116156101000203166002900461050d9291906108aa565b506003820160009054906101000a900463ffffffff168160030160006101000a81548163ffffffff021916908363ffffffff1602179055506003820160049054906101000a900460ff168160030160046101000a81548160ff02191690831515021790555090505050505050565b6000606060006004846040518082805190602001908083835b6020831015156105b95780518252602082019150602081019050602083039250610594565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160049054906101000a900460ff16151561060857600080fd5b6004846040518082805190602001908083835b602083101515610640578051825260208201915060208101905060208303925061061b565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1692506004846040518082805190602001908083835b6020831015156106d157805182526020820191506020810190506020830392506106ac565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390206001018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561079b5780601f106107705761010080835404028352916020019161079b565b820191906000526020600020905b81548152906001019060200180831161077e57829003601f168201915b505050505091506004846040518082805190602001908083835b6020831015156107da57805182526020820191506020810190506020830392506107b5565b6001836020036101000a038019825116818451168082178552505050505050905001915050908152602001604051809103902060030160009054906101000a900463ffffffff1690509193909250565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061086b57805160ff1916838001178555610899565b82800160010185558215610899579182015b8281111561089857825182559160200191906001019061087d565b5b5090506108a69190610931565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106108e35780548555610920565b8280016001018555821561092057600052602060002091601f016020900482015b8281111561091f578254825591600101919060010190610904565b5b50905061092d9190610931565b5090565b61095391905b8082111561094f576000816000905550600101610937565b5090565b905600a165627a7a72305820e348aec85a9c6a7e52526c2a5e1c5f2aae28af8c76cefce668d5cf03891c9e450029",
+  "sourceMap": "69:1337:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:1337:0;;;;;;;",
+  "deployedSourceMap": "69:1337:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;241:751;;8:9:-1;5:2;;;30:1;27;20:12;5:2;241:751:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1025:374;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1025:374:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1025:374:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;241:751;320:26;375;355:9;320:45;;410:9;375:45;;536:1;513:13;:20;:24;:52;;;;;564:1;541:13;:20;:24;513:52;505:61;;;;;;;;639:9;649;639:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;639:20:0;;;;;;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;638:28;630:37;;;;;;;;721:173;;;;;;;;;767:10;721:173;;;;;;797:9;721:173;;;;847:9;721:173;;;;828:1;721:173;;;;;;879:4;721:173;;;;;710:8;:184;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;977:8;954:9;964;954:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;954:20:0;;;;;;;;;;;;;;;;;;;;;:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;241:751;;;;:::o;1025:374::-;1090:22;1118:14;1134:12;1205:9;1215;1205:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1205:20:0;;;;;;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;1197:36;;;;;;;;1269:9;1279;1269:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1269:20:0;;;;;;;;;;;;;;;;;;;;;:35;;;;;;;;;;;;1252:52;;1324:9;1334;1324:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1324:20:0;;;;;;;;;;;;;;;;;;;;;:24;;1314:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1366:9;1376;1366:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;51:19;36:153;;;182:3;176:10;171:3;164:23;98:2;93:3;89:12;82:19;;123:2;118:3;114:12;107:19;;148:2;143:3;139:12;132:19;;36:153;;;274:1;267:3;263:2;259:12;254:3;250:22;246:30;315:4;311:9;305:3;299:10;295:26;356:4;350:3;344:10;340:21;389:7;380;377:20;372:3;365:33;3:399;;;1366:20:0;;;;;;;;;;;;;;;;;;;;;:26;;;;;;;;;;;;1358:34;;1025:374;;;;;:::o;69:1337::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity  ^0.4.2;\n\nimport \"./helper_contracts/MediaLib.sol\";\n\ncontract MediaStore {\n\n    using MediaLib for *;\n    MediaLib.Media mediaObj;\n    \n    mapping (string => MediaLib.Media) private mediaList;\n\n    /// addMedia content \n    function addMedia(string mediaHash,string tagString) public {\n        \n        bytes memory mediaHashTemp = bytes(mediaHash);\n        bytes memory tagStringTemp = bytes(tagString);\n                \n        //passed parameters are blank, check if new media\n        require(mediaHashTemp.length > 0 && tagStringTemp.length > 0);\n        \n        // media should not be already added\n        require(!mediaList[mediaHash].exists);\n\n        //Creating media object\n        mediaObj = MediaLib.Media({\n            creatorAddress : msg.sender,\n            tag : tagString,\n            claps : 0,\n            id: mediaHash,\n            exists : true\n        });\n        \n        //storing new media into mapping\n        mediaList[mediaHash] = mediaObj;\n    }\n    \n    /// fetch content \n    function getMediaDetByHash(string mediaHash) public view returns(address creatorAddress,\n    string allTags, uint32 claps){\n        //check if media exisit or not \n        require(mediaList[mediaHash].exists);\n        \n        creatorAddress = mediaList[mediaHash].creatorAddress;\n        allTags = mediaList[mediaHash].tag;\n        claps = mediaList[mediaHash].claps;\n    }\n    \n}\n",
+  "sourcePath": "/home/vishwasb/vab/projects/training-boilerplate/contracts/MediaStore.sol",
+  "ast": {
+    "absolutePath": "/home/vishwasb/vab/projects/training-boilerplate/contracts/MediaStore.sol",
+    "exportedSymbols": {
+      "MediaStore": [
+        109
+      ]
+    },
+    "id": 110,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "absolutePath": "/home/vishwasb/vab/projects/training-boilerplate/contracts/helper_contracts/MediaLib.sol",
+        "file": "./helper_contracts/MediaLib.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 110,
+        "sourceUnit": 332,
+        "src": "26:41:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 109,
+        "linearizedBaseContracts": [
+          109
+        ],
+        "name": "MediaStore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 4,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "MediaLib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 331,
+              "src": "102:8:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MediaLib_$331",
+                "typeString": "library MediaLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "96:21:0",
+            "typeName": null
+          },
+          {
+            "constant": false,
+            "id": 6,
+            "name": "mediaObj",
+            "nodeType": "VariableDeclaration",
+            "scope": 109,
+            "src": "122:23:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Media_$325_storage",
+              "typeString": "struct MediaLib.Media"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 5,
+              "name": "MediaLib.Media",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 325,
+              "src": "122:14:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Media_$325_storage_ptr",
+                "typeString": "struct MediaLib.Media"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 10,
+            "name": "mediaList",
+            "nodeType": "VariableDeclaration",
+            "scope": 109,
+            "src": "156:52:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+              "typeString": "mapping(string => struct MediaLib.Media)"
+            },
+            "typeName": {
+              "id": 9,
+              "keyType": {
+                "id": 7,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "165:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "156:34:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                "typeString": "mapping(string => struct MediaLib.Media)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 8,
+                "name": "MediaLib.Media",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 325,
+                "src": "175:14:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Media_$325_storage_ptr",
+                  "typeString": "struct MediaLib.Media"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "301:691:0",
+              "statements": [
+                {
+                  "assignments": [
+                    18
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 18,
+                      "name": "mediaHashTemp",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 68,
+                      "src": "320:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 17,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "320:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 22,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 20,
+                        "name": "mediaHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "355:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 19,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "349:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                        "typeString": "type(bytes storage pointer)"
+                      },
+                      "typeName": "bytes"
+                    },
+                    "id": 21,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "349:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "320:45:0"
+                },
+                {
+                  "assignments": [
+                    24
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 24,
+                      "name": "tagStringTemp",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 68,
+                      "src": "375:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 23,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "375:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 28,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 26,
+                        "name": "tagString",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "410:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 25,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "404:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                        "typeString": "type(bytes storage pointer)"
+                      },
+                      "typeName": "bytes"
+                    },
+                    "id": 27,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "404:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "375:45:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 38,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 33,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 30,
+                              "name": "mediaHashTemp",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 18,
+                              "src": "513:13:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            },
+                            "id": 31,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "513:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 32,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "536:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "513:24:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 37,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 34,
+                              "name": "tagStringTemp",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 24,
+                              "src": "541:13:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            },
+                            "id": 35,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "541:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 36,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "564:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "541:24:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "513:52:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 29,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "505:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 39,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "505:61:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 40,
+                  "nodeType": "ExpressionStatement",
+                  "src": "505:61:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 46,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "UnaryOperation",
+                        "operator": "!",
+                        "prefix": true,
+                        "src": "638:28:0",
+                        "subExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 42,
+                              "name": "mediaList",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 10,
+                              "src": "639:9:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                                "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                              }
+                            },
+                            "id": 44,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 43,
+                              "name": "mediaHash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 12,
+                              "src": "649:9:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "639:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Media_$325_storage",
+                              "typeString": "struct MediaLib.Media storage ref"
+                            }
+                          },
+                          "id": 45,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "exists",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 324,
+                          "src": "639:27:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 41,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "630:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 47,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "630:37:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 48,
+                  "nodeType": "ExpressionStatement",
+                  "src": "630:37:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 59,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 49,
+                      "name": "mediaObj",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6,
+                      "src": "710:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 52,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1921,
+                            "src": "767:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 53,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "767:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 54,
+                          "name": "tagString",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14,
+                          "src": "797:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 55,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "828:1:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 56,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12,
+                          "src": "847:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 57,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "879:4:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 50,
+                          "name": "MediaLib",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 331,
+                          "src": "721:8:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_MediaLib_$331_$",
+                            "typeString": "type(library MediaLib)"
+                          }
+                        },
+                        "id": 51,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "Media",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 325,
+                        "src": "721:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Media_$325_storage_ptr_$",
+                          "typeString": "type(struct MediaLib.Media storage pointer)"
+                        }
+                      },
+                      "id": 58,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [
+                        "creatorAddress",
+                        "tag",
+                        "claps",
+                        "id",
+                        "exists"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "721:173:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_memory",
+                        "typeString": "struct MediaLib.Media memory"
+                      }
+                    },
+                    "src": "710:184:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Media_$325_storage",
+                      "typeString": "struct MediaLib.Media storage ref"
+                    }
+                  },
+                  "id": 60,
+                  "nodeType": "ExpressionStatement",
+                  "src": "710:184:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 65,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 61,
+                        "name": "mediaList",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10,
+                        "src": "954:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                          "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                        }
+                      },
+                      "id": 63,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 62,
+                        "name": "mediaHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "964:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "954:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "mediaObj",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6,
+                      "src": "977:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "src": "954:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Media_$325_storage",
+                      "typeString": "struct MediaLib.Media storage ref"
+                    }
+                  },
+                  "id": 66,
+                  "nodeType": "ExpressionStatement",
+                  "src": "954:31:0"
+                }
+              ]
+            },
+            "documentation": "addMedia content ",
+            "id": 68,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "addMedia",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12,
+                  "name": "mediaHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "259:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 11,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "259:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14,
+                  "name": "tagString",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "276:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "276:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "258:35:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 16,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:0:0"
+            },
+            "scope": 109,
+            "src": "241:751:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 107,
+              "nodeType": "Block",
+              "src": "1147:252:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 80,
+                            "name": "mediaList",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10,
+                            "src": "1205:9:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                              "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                            }
+                          },
+                          "id": 82,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 81,
+                            "name": "mediaHash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 70,
+                            "src": "1215:9:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1205:20:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Media_$325_storage",
+                            "typeString": "struct MediaLib.Media storage ref"
+                          }
+                        },
+                        "id": 83,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "exists",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 324,
+                        "src": "1205:27:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 79,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "1197:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1197:36:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 85,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1197:36:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 86,
+                      "name": "creatorAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 73,
+                      "src": "1252:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1269:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 89,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 88,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1279:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1269:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 90,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "creatorAddress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 316,
+                      "src": "1269:35:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1252:52:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 92,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1252:52:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 98,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 93,
+                      "name": "allTags",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 75,
+                      "src": "1314:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1324:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 96,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 95,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1334:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1324:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 97,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "tag",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 318,
+                      "src": "1324:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "src": "1314:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 99,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1314:34:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 100,
+                      "name": "claps",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 77,
+                      "src": "1358:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 101,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1366:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 103,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 102,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1376:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1366:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 104,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "claps",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 322,
+                      "src": "1366:26:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "src": "1358:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "id": 106,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1358:34:0"
+                }
+              ]
+            },
+            "documentation": "fetch content ",
+            "id": 108,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMediaDetByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "name": "mediaHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1052:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1052:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1051:18:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 73,
+                  "name": "creatorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1090:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1090:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 75,
+                  "name": "allTags",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1118:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 74,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "claps",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1134:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1134:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1089:58:0"
+            },
+            "scope": 109,
+            "src": "1025:374:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 110,
+        "src": "69:1337:0"
+      }
+    ],
+    "src": "0:1407:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/vishwasb/vab/projects/training-boilerplate/contracts/MediaStore.sol",
+    "exportedSymbols": {
+      "MediaStore": [
+        109
+      ]
+    },
+    "id": 110,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "absolutePath": "/home/vishwasb/vab/projects/training-boilerplate/contracts/helper_contracts/MediaLib.sol",
+        "file": "./helper_contracts/MediaLib.sol",
+        "id": 2,
+        "nodeType": "ImportDirective",
+        "scope": 110,
+        "sourceUnit": 332,
+        "src": "26:41:0",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 109,
+        "linearizedBaseContracts": [
+          109
+        ],
+        "name": "MediaStore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 4,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3,
+              "name": "MediaLib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 331,
+              "src": "102:8:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MediaLib_$331",
+                "typeString": "library MediaLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "96:21:0",
+            "typeName": null
+          },
+          {
+            "constant": false,
+            "id": 6,
+            "name": "mediaObj",
+            "nodeType": "VariableDeclaration",
+            "scope": 109,
+            "src": "122:23:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Media_$325_storage",
+              "typeString": "struct MediaLib.Media"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 5,
+              "name": "MediaLib.Media",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 325,
+              "src": "122:14:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Media_$325_storage_ptr",
+                "typeString": "struct MediaLib.Media"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 10,
+            "name": "mediaList",
+            "nodeType": "VariableDeclaration",
+            "scope": 109,
+            "src": "156:52:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+              "typeString": "mapping(string => struct MediaLib.Media)"
+            },
+            "typeName": {
+              "id": 9,
+              "keyType": {
+                "id": 7,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "165:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "156:34:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                "typeString": "mapping(string => struct MediaLib.Media)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 8,
+                "name": "MediaLib.Media",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 325,
+                "src": "175:14:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Media_$325_storage_ptr",
+                  "typeString": "struct MediaLib.Media"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "301:691:0",
+              "statements": [
+                {
+                  "assignments": [
+                    18
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 18,
+                      "name": "mediaHashTemp",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 68,
+                      "src": "320:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 17,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "320:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 22,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 20,
+                        "name": "mediaHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "355:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 19,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "349:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                        "typeString": "type(bytes storage pointer)"
+                      },
+                      "typeName": "bytes"
+                    },
+                    "id": 21,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "349:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "320:45:0"
+                },
+                {
+                  "assignments": [
+                    24
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 24,
+                      "name": "tagStringTemp",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 68,
+                      "src": "375:26:0",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes"
+                      },
+                      "typeName": {
+                        "id": 23,
+                        "name": "bytes",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "375:5:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage_ptr",
+                          "typeString": "bytes"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 28,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 26,
+                        "name": "tagString",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "410:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 25,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "404:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_bytes_storage_ptr_$",
+                        "typeString": "type(bytes storage pointer)"
+                      },
+                      "typeName": "bytes"
+                    },
+                    "id": 27,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "404:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "375:45:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "id": 38,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 33,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 30,
+                              "name": "mediaHashTemp",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 18,
+                              "src": "513:13:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            },
+                            "id": 31,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "513:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 32,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "536:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "513:24:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "&&",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 37,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 34,
+                              "name": "tagStringTemp",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 24,
+                              "src": "541:13:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes_memory_ptr",
+                                "typeString": "bytes memory"
+                              }
+                            },
+                            "id": 35,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "length",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "541:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": ">",
+                          "rightExpression": {
+                            "argumentTypes": null,
+                            "hexValue": "30",
+                            "id": 36,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "564:1:0",
+                            "subdenomination": null,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          },
+                          "src": "541:24:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "src": "513:52:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 29,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "505:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 39,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "505:61:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 40,
+                  "nodeType": "ExpressionStatement",
+                  "src": "505:61:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 46,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "UnaryOperation",
+                        "operator": "!",
+                        "prefix": true,
+                        "src": "638:28:0",
+                        "subExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 42,
+                              "name": "mediaList",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 10,
+                              "src": "639:9:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                                "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                              }
+                            },
+                            "id": 44,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 43,
+                              "name": "mediaHash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 12,
+                              "src": "649:9:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "639:20:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Media_$325_storage",
+                              "typeString": "struct MediaLib.Media storage ref"
+                            }
+                          },
+                          "id": 45,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "exists",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 324,
+                          "src": "639:27:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 41,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "630:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 47,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "630:37:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 48,
+                  "nodeType": "ExpressionStatement",
+                  "src": "630:37:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 59,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 49,
+                      "name": "mediaObj",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6,
+                      "src": "710:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 52,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1921,
+                            "src": "767:3:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 53,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "767:10:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 54,
+                          "name": "tagString",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14,
+                          "src": "797:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 55,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "828:1:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 56,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12,
+                          "src": "847:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 57,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "879:4:0",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 50,
+                          "name": "MediaLib",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 331,
+                          "src": "721:8:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_MediaLib_$331_$",
+                            "typeString": "type(library MediaLib)"
+                          }
+                        },
+                        "id": 51,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "Media",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 325,
+                        "src": "721:14:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Media_$325_storage_ptr_$",
+                          "typeString": "type(struct MediaLib.Media storage pointer)"
+                        }
+                      },
+                      "id": 58,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [
+                        "creatorAddress",
+                        "tag",
+                        "claps",
+                        "id",
+                        "exists"
+                      ],
+                      "nodeType": "FunctionCall",
+                      "src": "721:173:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_memory",
+                        "typeString": "struct MediaLib.Media memory"
+                      }
+                    },
+                    "src": "710:184:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Media_$325_storage",
+                      "typeString": "struct MediaLib.Media storage ref"
+                    }
+                  },
+                  "id": 60,
+                  "nodeType": "ExpressionStatement",
+                  "src": "710:184:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 65,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 61,
+                        "name": "mediaList",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10,
+                        "src": "954:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                          "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                        }
+                      },
+                      "id": 63,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 62,
+                        "name": "mediaHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12,
+                        "src": "964:9:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "954:20:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 64,
+                      "name": "mediaObj",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6,
+                      "src": "977:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Media_$325_storage",
+                        "typeString": "struct MediaLib.Media storage ref"
+                      }
+                    },
+                    "src": "954:31:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Media_$325_storage",
+                      "typeString": "struct MediaLib.Media storage ref"
+                    }
+                  },
+                  "id": 66,
+                  "nodeType": "ExpressionStatement",
+                  "src": "954:31:0"
+                }
+              ]
+            },
+            "documentation": "addMedia content ",
+            "id": 68,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "addMedia",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 15,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12,
+                  "name": "mediaHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "259:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 11,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "259:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14,
+                  "name": "tagString",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 68,
+                  "src": "276:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "276:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "258:35:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 16,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:0:0"
+            },
+            "scope": 109,
+            "src": "241:751:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 107,
+              "nodeType": "Block",
+              "src": "1147:252:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 80,
+                            "name": "mediaList",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10,
+                            "src": "1205:9:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                              "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                            }
+                          },
+                          "id": 82,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "id": 81,
+                            "name": "mediaHash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 70,
+                            "src": "1215:9:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1205:20:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Media_$325_storage",
+                            "typeString": "struct MediaLib.Media storage ref"
+                          }
+                        },
+                        "id": 83,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "exists",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 324,
+                        "src": "1205:27:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 79,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1924,
+                        1925
+                      ],
+                      "referencedDeclaration": 1924,
+                      "src": "1197:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 84,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1197:36:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 85,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1197:36:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 91,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 86,
+                      "name": "creatorAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 73,
+                      "src": "1252:14:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 87,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1269:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 89,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 88,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1279:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1269:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 90,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "creatorAddress",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 316,
+                      "src": "1269:35:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1252:52:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 92,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1252:52:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 98,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 93,
+                      "name": "allTags",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 75,
+                      "src": "1314:7:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 94,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1324:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 96,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 95,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1334:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1324:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 97,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "tag",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 318,
+                      "src": "1324:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "src": "1314:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 99,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1314:34:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 105,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 100,
+                      "name": "claps",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 77,
+                      "src": "1358:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 101,
+                          "name": "mediaList",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10,
+                          "src": "1366:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Media_$325_storage_$",
+                            "typeString": "mapping(string memory => struct MediaLib.Media storage ref)"
+                          }
+                        },
+                        "id": 103,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 102,
+                          "name": "mediaHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "1376:9:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1366:20:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Media_$325_storage",
+                          "typeString": "struct MediaLib.Media storage ref"
+                        }
+                      },
+                      "id": 104,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "claps",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 322,
+                      "src": "1366:26:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "src": "1358:34:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "id": 106,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1358:34:0"
+                }
+              ]
+            },
+            "documentation": "fetch content ",
+            "id": 108,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getMediaDetByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "name": "mediaHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1052:16:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1052:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1051:18:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 73,
+                  "name": "creatorAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1090:22:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 72,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1090:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 75,
+                  "name": "allTags",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1118:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 74,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 77,
+                  "name": "claps",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 108,
+                  "src": "1134:12:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1134:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1089:58:0"
+            },
+            "scope": 109,
+            "src": "1025:374:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 110,
+        "src": "69:1337:0"
+      }
+    ],
+    "src": "0:1407:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xe6cfacd6ff74b0d6792b752a709de48e3078c7b8",
+      "transactionHash": "0xa90e281b81948d9b2398236ed4c5640e83fd811df3aa790ef451def3e4a78b08"
+    },
+    "3257": {
+      "events": {},
+      "links": {},
+      "address": "0x1d5eaadf4fe9f86438132456f97f2732d22008ee",
+      "transactionHash": "0x025cb32898f991d2002a8093bf5ffa506b1436eb0642ae02874210ff7c04f4c2"
+    },
+    "1535181482896": {
+      "events": {},
+      "links": {},
+      "address": "0x11ff30e17adbc8d427870bbeca26212df4ac8ada",
+      "transactionHash": "0xe3864d17b2c9fb094edfabca51224f4a7f6a4cca5349f4a1814ad1082bb38ac4"
+    },
+    "1535227709498": {
+      "events": {},
+      "links": {},
+      "address": "0x21045dd46a6e08e8bf139b6c40b2e3c68104f3c5",
+      "transactionHash": "0xb16630e565b2bc5fdd790370913c8593d4757e27086d767409628f103bd0c324"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-09-22T16:10:13.688Z"
+}

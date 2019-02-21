@@ -1,0 +1,10 @@
+arn:aws:sns:us-east-1:482963721489:adhat-deploy
+
+ key: AKIAI65JZRTW3G23MO2A
+
+ Pass :6vorl98sreV2cHufup3eQYPXDUW2m1Lnsx2xFFuY
+
+
+ aws kms encrypt --key-id "arn:aws:kms:us-east-1:482963721489:key/0bbc3b97-2995-49ac-8d54-89198ec9e095" --plaintext "6c97b965083c2731fc4424b380a87e38b4a2cc98" --query "CiphertextBlob" --output text | base64 -d > ./githubtoken.secret
+
+ https://www.youtube.com/watch?v=-5MPXHvKDnc

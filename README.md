@@ -1,7 +1,6 @@
 # CredLive-Ui
 
-> A simple app to list and filter movies
-
+> A simple app to list and filter Credit
 ## Build Setup
 
 ``` bash
