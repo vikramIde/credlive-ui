@@ -22,9 +22,9 @@
       <div class="login-container">
         <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
           class="card-box login-form">
-          <h3 class="title">Welcome to Adhat!</h3>
-          <el-form-item style="background : white">
-            <qrcode-vue :value="value" :size="310" level="H" ></qrcode-vue>
+          <h3 class="title">Credlive</h3>
+          <el-form-item style="background :rgb(119, 37, 43)">
+            <qrcode-vue :value="value" :size="300" level="H" ></qrcode-vue>
           </el-form-item>
         </el-form>
         
@@ -284,9 +284,9 @@ export default {
       margin: 120px auto;
     }
     .el-form-item {
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      //border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
+      //border-radius: 5px;
       color: #454545;
     }
     .show-pwd {

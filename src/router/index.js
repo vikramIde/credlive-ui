@@ -52,65 +52,36 @@ export const constantRouterMap = [
       }
     ]
   },
-  
   {
-    path: '/feed',
+    path: '/app',
     component: Layout,
-    redirect: '/feed/trending',
-    name: 'Feed',
-    meta: { title: 'Feed', icon: 'example' },
+    redirect: '/app/creditcard',
+    name: 'Creditcard',
+    meta: { title: 'Credit Card', icon: 'credit-card' },
     children: [
       {
-        path: 'trending',
-        name: 'Market Place',
+        path: 'creditcard',
+        name: 'Credit Card',
         component: () => import('@/views/feed/index'),
-        meta: { title: 'Market Place', icon: 'cart-plus' }
-      },
-      // {
-      //   path: 'bhojpuri',
-      //   name: 'Bhojpuri',
-      //   component: () => import('@/views/feed/index'),
-      //   meta: { title: 'Bhojpuri', icon: 'headphones' }
-      // },
-      // {
-      //   path: 'bhangra',
-      //   name: 'Bhangra',
-      //   component: () => import('@/views/feed/index'),
-      //   meta: { title: 'Bhangra', icon: 'headphones' }
-      // },
-      // {
-      //   path: 'bluesjazz',
-      //   name: 'Blues/Jazz',
-      //   component: () => import('@/views/feed/index'),
-      //   meta: { title: 'Blues/Jazz', icon: 'headphones' }
-      // }
-    ]
-  },
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Upload Content',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Upload Content', icon: 'form' }
+        meta: { title: 'Credit Card', icon: 'credit-card' }
       }
     ]
   },
   {
-    path: '/profile',
+    path: '/app',
     component: Layout,
+    redirect: '/app/banking',
+    name: 'Banking',
+    meta: { title: 'Banking', icon: 'credit-card' },
     children: [
       {
-        path: '/index',
-        name: 'User Profile',
-        component: () => import('@/views/profile/index'),
-        meta: { title: 'User Profile', icon: 'user' }
+        path: 'banking',
+        name: 'Banking',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Banking', icon: 'credit-card' }
       }
     ]
   },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
 

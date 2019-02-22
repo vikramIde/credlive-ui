@@ -2,46 +2,248 @@
   <div class="dashboard-container">
     <div class="vid-category-header" v-if="feed.length>0">
       <i class="el-icon-service"></i>
-        {{feed.category.topic}} - <span class="time">{{feed.category.subtopic}}</span>
+       
     </div>
-    <section v-for="video in feed.video_list" class="vid-category">
+    <section  class="vid-category">
         <div class="grid-content" style="">
-          <el-container>
-            <el-aside width="">
-              <el-card style="padding:0px" shadow="hover" >
-                 <img :src="video.thumb_nail" class="image" style="max-height:200px;max-width:200px">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+              <el-tab-pane label="Defaulter" name="first">
+                  <div v-if="activeName=='first'">
+                    <el-col v-for="(defaulter,i) in defaulterList" :key="i" :span="6" style="padding:5px">
+                       <el-card class="" >
+                        <div slot="header" class="clearfix">
 
-              </el-card>
-               <el-button type="primary" >Buy</el-button>
-            </el-aside>
-            <el-container>
-              <el-header>{{video.title}}</el-header>
-              <el-main>{{video.description}}</el-main>
-              <el-footer>
-                <time class="time">{{ video.timeStamp }}</time>
-                <time class="time">{{ video.views }}</time>
-              </el-footer>
-            </el-container>
-          </el-container>
-          <!-- <el-container>
-            <el-aside>
-              
-            </el-aside>
-            <el-main>
-              <div style="">
-                <div class="vid-category-header"><i class="el-icon-service"></i>{{video.title}}</div>
-                <div class="bottom clearfix">
-                  <time class="time">{{ video.timeStamp }}</time>
-                  <time class="time">{{ video.views }}</time>
-                </div>
-              </div>
-            </el-main>
-          </el-container> -->
+                          <span><el-tag type="danger" v-if="defaulter._source['default.payment.next.month']=='1'">Pay soon</el-tag></span>
+                          <el-button style="float: right; padding: 3px 0" @click="openModal(defaulter)">View</el-button>
+                        </div>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Id</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.ID}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Name</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.Name}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Credit Limit</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.LIMIT_BAL}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Recent Bill Amount</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.BILL_AMT1}}</div></el-col>
+                        </el-row>
+                      </el-card>
+                    </el-col>
+                  </div>
+              </el-tab-pane>
+              <el-tab-pane label="Search" name="second">
+                  <sticky v-if="activeName=='second'" class-name="sub-navbar">
+                    <div class="time-container">
+                     <el-input v-model="searchData" placeholder="Keyword"></el-input>
+                    </div>
+
+                    <el-button style="margin-left: 10px;" type="info" @click="getResults">Search
+                    </el-button>
+                  </sticky>
+                  <div v-if="activeName=='second'">
+                    <el-col v-for="(defaulter,i) in searchList" :key="i" :span="6" style="padding:5px">
+                       <el-card class="" >
+                        <div slot="header" class="clearfix">
+
+                           <span><el-tag type="danger" v-if="defaulter._source['default.payment.next.month']=='1'">Pay soon</el-tag></span> 
+                           <span><el-tag type="success" v-if="defaulter._source['default.payment.next.month']=='0'">Paid</el-tag></span>
+                          <el-button style="float: right; padding: 3px 0" @click="openModal(defaulter)">View</el-button>
+                        </div>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Id</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.ID}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Name</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.Name}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Credit Limit</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.LIMIT_BAL}}</div></el-col>
+                        </el-row>
+                        <el-row :gutter="20">
+                          <el-col :span="12"><div class="grid-content">Recent Bill Amount</div></el-col>
+                          <el-col :span="12"><div class="grid-content">{{defaulter._source.BILL_AMT1}}</div></el-col>
+                        </el-row>
+                      </el-card>
+                    </el-col>
+                  </div>
+              </el-tab-pane>
+            </el-tabs>
+            
         </div>
     </section>
+    <el-dialog title="Details" :visible.sync="dialogTableVisible">
+      <el-tabs v-model="activeNameModal" @tab-click="handleClick">
+        <el-tab-pane label="Payments" name="third">
+          <el-table :data="billData">
+            <el-table-column property="month" label="Month" width="200"></el-table-column>
+            <el-table-column property="currency" label="$" width="100"></el-table-column>
+            <el-table-column property="value" label="Amt"></el-table-column>
+          </el-table>
+        </el-tab-pane>
+        <el-tab-pane label="Personal" name="fourth">
+            <el-card class=""v-if="activeNameModal=='fourth'" >
+              <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content">Id</div></el-col>
+                <el-col :span="6"><div class="grid-content">{{defaulter._source.ID}}</div></el-col>
+                <el-col :span="6"><div class="grid-content">Name</div></el-col>
+                <el-col :span="6"><div class="grid-content">{{defaulter._source.Name}}</div></el-col>
+              </el-row>
+              <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content">Credit Limit</div></el-col>
+                <el-col :span="6"><div class="grid-content">{{defaulter._source.LIMIT_BAL}}</div></el-col>
+                <el-col :span="6"><div class="grid-content">Recent Bill Amount</div></el-col>
+                <el-col :span="6"><div class="grid-content">{{defaulter._source.BILL_AMT1}}</div></el-col>
+              </el-row>
+              <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content">Sex</div></el-col>
+                <el-col :span="6"><div class="grid-content">
+                  <span v-if="defaulter._source.SEX=='1'">Male</span>
+                  <span v-if="defaulter._source.SEX=='2'">Female</span>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content">Education</div></el-col>
+                <el-col :span="6"><div class="grid-content">
+                  <span v-if="defaulter._source.EDUCATION=='1'">Graduate school</span>
+                  <span v-if="defaulter._source.EDUCATION=='2'">University</span>
+                  <span v-if="defaulter._source.EDUCATION=='3'">High school</span>
+                  <span v-if="defaulter._source.EDUCATION=='4'">others</span>
+                  <span v-if="defaulter._source.EDUCATION=='5'">unknown</span>
+                  <span v-if="defaulter._source.EDUCATION=='6'">unknown</span></div>
+                </el-col>
+              </el-row>
+              <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content">Marriage</div></el-col>
+                <el-col :span="6"><div class="grid-content">
+                  <span v-if="defaulter._source.SEX=='1'">Married</span>
+                  <span v-if="defaulter._source.SEX=='2'">Single</span>
+                  <span v-if="defaulter._source.SEX=='3'">Others</span>
+                </div>
+                </el-col>
+                <el-col :span="6"><div class="grid-content">Age</div></el-col>
+                <el-col :span="6"><div class="grid-content">{{defaulter._source.AGE}}</div></el-col>
+              </el-row>
+            </el-card>
+        </el-tab-pane>
+      </el-tabs>
+    </el-dialog>
+
   </div>
 </template>
+<script>
+import { mapGetters } from 'vuex'
+import { getDefaulter ,getUserList} from '@/api/results'
+import sticky from '@/components/Sticky'
+export default {
+  name: 'credit-card',
+  components: { sticky },
+  computed: {
+    ...mapGetters([
+      'name',
+      'roles'
+    ])
+  },
+  data(){
+    return {
+
+        feed:{},
+        searchData:'',
+        billData: [],
+        defaulter:'',
+        activeName: 'first',
+        activeNameModal: 'third',
+        time: '',
+        url: '',
+        platforms: ['a-platform'],
+        platformsOptions: [
+          { key: 'a-platform', name: 'platformA' },
+          { key: 'b-platform', name: 'platformB' },
+          { key: 'c-platform', name: 'platformC' }
+        ],
+        pickerOptions: {
+          disabledDate(time) {
+            return time.getTime() > Date.now()
+          }
+        },
+        dialogTableVisible: false,
+        dialogFormVisible: false,
+        defaulterList:[],
+        searchList:[]
+      }
+    },
+  mounted(){
+    console.log(this.$route.name)
+    getDefaulter('')
+    .then(res=>{
+          this.defaulterList = this.parseResponse(res)
+      
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+    // this.getSelectedFeed(this.$route.name)
+  },
+  methods:{
+    openModal(data){
+      let arr = []
+      this.billData=[]
+      for(let i =1; i<7 ; i++){
+        let row = {}
+        row.value=data._source['BILL_AMT'+i]
+        if(i==1)
+          row.month='September'
+        if(i==2)
+            row.month='August'
+        if(i==3)
+            row.month='July'
+        if(i==4)
+            row.month='June'
+        if(i==5)
+            row.month='May'
+        if(i==6)
+            row.month='April'
+
+          row.currency = 'INR'
+          this.billData.push(row)
+
+      }
+      this.defaulter = data
+      this.dialogTableVisible=true
+    },
+    handleClick(tab, event) {
+        console.log(tab, event);
+    },
+    parseResponse(res)
+    {
+      if(res.hits)
+        {
+          if(res.hits.hits)
+            return res.hits.hits
+        }
+        else
+          return []
+    },
+    getResults(){
+      const params = this.searchData
+      getUserList(params)
+      .then(res=>{
+            this.searchList = this.parseResponse(res)
+        
+      })
+    }
+  },
+  computed :{
+   
+  }
+}
+</script>
 <style>
+
   .vid-category{
     padding: 14px;
   }
@@ -95,10 +297,41 @@
     text-align: center;
     line-height: 160px;
   }*/
-  
+  .grid-content {
+    font-size: smaller;
+    border-radius: 4px;
+    min-height: ;
+  }
+    .text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 300px;
+  }
   body > .el-container {
     margin-bottom: 40px;
   }
+
+  .components-container div {
+  margin: 10px;
+}
+.time-container {
+  display: inline-block;
+}
   
   .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
@@ -138,160 +371,8 @@
       clear: both
   }
 </style>
-<script>
-import { mapGetters } from 'vuex'
-import TestAbi from '../../../build/contracts/TestContract.json';
-import contract from  'truffle-contract';
-export default {
-  name: 'dashboard',
-  computed: {
-    ...mapGetters([
-      'name',
-      'roles'
-    ])
-  },
-  mounted() {
-    debugger
-    let web3 =  this.$store.state.user.web3.web3Instance
-    if(web3){
-      const testContract = contract(TestAbi)
-      testContract.setProvider(web3.currentProvider);
-      testContract.deployed().then(testContractInstance => {
-        testContractInstance.getAllMediaIds(
-          { from: '' }
-        ).then((result)=>{
-          debugger
-          if(result && result[0] && result[1]){
-            if(result[1] > 0){0x1e36d26ec23657041b6dfc5b52a640192ccc4ef8
-              const mediaIds = result[0]
-              if(mediaIds){
-                const ipfsHashes = mediaIds.split('|')
-                if(ipfsHashes && ipfsHashes.length > 0){
-                  let videoList = []
-                  ipfsHashes.forEach((element, index) => {
-                    let videoObj = {
-                      title : 'Title' + index,
-                      url : 'https://ipfs.io/ipfs/' + element,
-                      description : 'Some random description',                      
-                      thumb_nail : 'https://ipfs.io/ipfs/' + element,
-                      views:"4 million",
-                      timeStamp:"last month"
-                    } 
-                    videoList.push(videoObj)
-                    console.log(videoObj)
-                    if(index == ipfsHashes.length -1){
-                    }
-                  });
-                  this.feeds[0].video_list = videoList && videoList.length > 0 ?videoList  :this.feeds[0].video_list                  
-                }else{
-                  console.log("Inside else of ipfsHashes && ipfsHashes.length > 0")
-                }
-              }else{
-                console.log("Inside else of mediaIds")
-              }
-            }else{
-              console.log("Inside else of result[1] > 0")
-            }
-          }else{
-            console.log("Inside else of result && result[0] && result[1]")
-          }
-          console.log(result)
-        })
-      })
-    }else{
-      console.log(GENERAL.NOWEB3)
-    }
-  },
-  data(){
-    return {
-        feed:{},
-        feeds:[{ category:{topic:"Trending",subtopic:""},
-                video_list:[
-                   {
-                    title:"Title 3",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"http://www.artifilmsmp3.com/wp-content/uploads/2016/01/2-Pooja-Ke-Thali-leke-470x470.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },
-                  {
-                    title:"Title 2",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://i.ytimg.com/vi/6Z0knzjibm8/maxresdefault.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },
-                 {
-                    title:"Title 3",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://www.learnjazzstandards.com/wp-content/uploads/2015/09/JohnColtrane-2.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },{
-                    title:"Title 5",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://4.bp.blogspot.com/-MpV20i_QWkY/V5ZDxVr9NKI/AAAAAAAAGn4/i-qnybntX78zsEWvWLtek9ytuZZ-Gyf2QCLcB/s640/kanwatr-ke-power-dinesh-lal-yadav-amarpali-dunbey.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },
-                  {
-                    title:"Title 3",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://www.learnjazzstandards.com/wp-content/uploads/2015/09/JohnColtrane-2.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },
-                  {
-                    title:"Title 7",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://i.ytimg.com/vi/_I6r7VL2XMo/maxresdefault.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  },
-                  {
-                    title:"Title 8",
-                    url:"https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG",
-                    description:"Hi I am the description og the video",
-                    thumb_nail:"https://i.ytimg.com/vi/_I6r7VL2XMo/maxresdefault.jpg",
-                    views:"4 million",
-                    timeStamp:"last month"
-                  }
-              ],
-      }
-      ]
-      
-    }
 
-  },
-  mounted(){
-    console.log(this.$route.name)
-    this.getSelectedFeed(this.$route.name)
-  },
-  methods:{
-    getSelectedFeed(url){
-       var x =  this.feeds.filter(feed=>{
-            return feed.category.topic == url
-       })
-       this.feed=x[0]
-    }
-  }
-}
-</script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
-}
+
 </style>
