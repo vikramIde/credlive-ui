@@ -57,7 +57,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/app/creditcard',
     name: 'Creditcard',
-    meta: { title: 'Credit Card', icon: 'credit-card' },
+    meta: { title: 'App', icon: 'credit-card' },
     children: [
       {
         path: 'creditcard',
@@ -72,13 +72,13 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/app/banking',
     name: 'Banking',
-    meta: { title: 'Banking', icon: 'credit-card' },
+    meta: { title: 'App', icon: 'credit-card' },
     children: [
       {
         path: 'banking',
         name: 'Banking',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Banking', icon: 'credit-card' }
+        meta: { title: 'Banking', icon: 'cc-visa' }
       }
     ]
   },

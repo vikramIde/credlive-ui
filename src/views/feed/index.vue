@@ -45,11 +45,11 @@
                     <el-button style="margin-left: 10px;" type="info" @click="getResults">Search
                     </el-button>
                   </sticky>
+                   
                   <div v-if="activeName=='second'">
                     <el-col v-for="(defaulter,i) in searchList" :key="i" :span="6" style="padding:5px">
                        <el-card class="" >
                         <div slot="header" class="clearfix">
-
                            <span><el-tag type="danger" v-if="defaulter._source['default.payment.next.month']=='1'">Pay soon</el-tag></span> 
                            <span><el-tag type="success" v-if="defaulter._source['default.payment.next.month']=='0'">Paid</el-tag></span>
                           <el-button style="float: right; padding: 3px 0" @click="openModal(defaulter)">View</el-button>
@@ -72,6 +72,8 @@
                         </el-row>
                       </el-card>
                     </el-col>
+                    <vue-speech  @onTranscriptionEnd="onEnd" />
+                   <button @click="startSpeech">Speech</button>
                   </div>
               </el-tab-pane>
             </el-tabs>
@@ -139,6 +141,7 @@
 import { mapGetters } from 'vuex'
 import { getDefaulter ,getUserList} from '@/api/results'
 import sticky from '@/components/Sticky'
+
 export default {
   name: 'credit-card',
   components: { sticky },
@@ -157,6 +160,7 @@ export default {
         defaulter:'',
         activeName: 'first',
         activeNameModal: 'third',
+        isTextToSpeach:false,
         time: '',
         url: '',
         platforms: ['a-platform'],
@@ -189,6 +193,39 @@ export default {
     // this.getSelectedFeed(this.$route.name)
   },
   methods:{
+    startSpeech(){
+      this.isTextToSpeach=true
+    },
+     onEnd ({ lastSentence, transcription }) {
+      // `lastSentence` is the last sentence before the pause
+      // `transcription` is the full array of sentences = 
+      try{
+            if(lastSentence.includes('open'))
+            {
+              if(lastSentence.includes('one')||lastSentence.includes('1'))
+              {
+                const data = this.searchList[0]
+                this.openModal(data)
+              }
+              if(lastSentence.includes('two')||lastSentence.includes('2'))
+              {
+                const data = this.searchList[1]
+                this.openModal(data)
+              }
+            }
+            else{
+              this.searchData = lastSentence
+              this.getResults()
+            }
+            
+      }
+      catch(err)
+      {
+        console.log(lastSentence)
+        console.log(err)
+      }
+      
+    },
     openModal(data){
       let arr = []
       this.billData=[]
@@ -252,7 +289,7 @@ export default {
     line-height: 60px;
   }
   .el-row {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     &:last-child {
       margin-bottom: 0;
     }

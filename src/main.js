@@ -16,6 +16,7 @@ import store from './store'
 import VueParticles from 'vue-particles'
 // import VuePrism from 'vue-prism'
 
+import VueSpeech from 'vue-speech'
 
 import '@/icons' // icon
 import '@/permission' // permission control
@@ -25,6 +26,7 @@ import '@/permission' // permission control
 Vue.use(ElementUI, { locale })
 Vue.use(VueParticles)
 Vue.config.productionTip = false
+Vue.use(VueSpeech)
 
 // export const globalStore = new Vue({
 //   data: {
